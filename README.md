@@ -1,7 +1,11 @@
 # Compte rendu du TP de BASTIDE Thomas
 lien du GitHub: https://github.com/Toh-Ma/TP_API.git
 
-## Etape 5 - Description des dépendances
+
+# TP2
+
+## Cherchez une description succincte de chaque dépendance ajoutée pour trouver à quoi sert-elle:
+Descriptions en Anglais:
 - Spring web : 
  	Provides basic HTTP integration, including convenient servlet filters, Spring HTTP Invoker, an infrastructure to integrate with other web frameworks and HTTP 			technologies. 
 
@@ -30,11 +34,9 @@ lien du GitHub: https://github.com/Toh-Ma/TP_API.git
 	With modules for Spring Framework, a host of integrations with your favourite tools, and the ability to plug in your own functionality, Thymeleaf is ideal for modern-day 	  HTML5 JVM web development although there is much more it can do.
 
 ## Avec quelle partie du code avons-nous parametre l'url d'appel/greeting ?
-
  @GetMapping("/greeting")  
  
 ## Avec quelle partie du code avons-nous choisi le fichier HTML à afficher ?
-
  return "greeting";
 
 ## Comment envoyons-nous le nom à qui nous disons bonjour avec le second lien ?
@@ -42,26 +44,32 @@ lien du GitHub: https://github.com/Toh-Ma/TP_API.git
  
   Remplacer la valeur par défaut avec @RequestParam -> @RequestParam(name ="nameGET", required =false, defaultValue ="World")
 
-## Relancez-votre application, retournez sur la console de H2 : http://localhost:8080/
-## h2-console. Avez-vous remarqué une différence ?
+## Relancez-votre application, retournez sur la console de H2 : http://localhost:8080/h2-console. Avez-vous remarqué une différence ?
  -> La table Address et ses colonnes ont été ajoutées à la db ainsi qu'un onglet appele Sequences.
  
+## Expliquez l'apparition de la nouvelle table en vous aidant de vos cours sur Hibernate, et de la dependance Hibernate de Spring.
+ -> ORM qui fait la correspondance entre l'object et la db, il créé les requetes SQL.. la création de db ce fait avec les annotations.
 
-## Hibernate  
-
-Hibernate est un framework open source gérant la persistance des objets en base de données relationnelle.
-A l'aide de son système de notation, cela permet de modifier et manipuler les bases de données facilement à travers les objets java.
-
-## Requête data.sql
+## Relancez l'application, retournez sur la console H2 : http://localhost:8080/h2-console.
+## Faites une requête de type SELECT sur la table Adress. Voyez-vous tout le contenu de data.sql ?
 SELECT * FROM address  
 
-On affiche toute la table address
+ ->
+ID  	CONTENT  	CREATION  
+1	57 boulevard demorieux	2021-11-02 18:09:26.313861
+2	51 allee du gamay, 34080 montpellier	2021-11-02 18:09:26.328821
 
-## Etape 23  
+## Pouvez-vous trouver à quoi sert l’annotation @Autowired du code précédent sur internet ?
+ ->  L'annotation @ Autowired vous épargne le besoin de faire le câblage par vous-même dans le fichier XML (ou de toute autre manière) et trouve juste pour vous ce qui doit être injecté où, et le fait pour vous. Dans notre cas cela permet l'injection de dépendences pour pouvoir chercher l'interface AddressRepository. Ce service qui permet d'accéder à la base de donnée pour créer, lire, mettre à jour et supprimer les données.
+ 
+Starting with Spring 2.5, the framework introduced annotations-driven Dependency Injection. The main annotation of this feature is @Autowired. It allows Spring to resolve and inject collaborating beans into our bean.
 
-@Autowired permet l'injection de dépendences pour pouvoir chercher l'interface AddressRepository, le service qui permet d'accéder à la base de donnée pour créer, lire, mettre à jour et supprimer les données
+## Côté vu affichez la nouvelle donnée:
+ID  	AUTOR  	CONTENT  	CREATION  
+1	Zominique	57 boulevard demorieux	2021-11-09 16:10:03.820719
+2	Thomas	51 allee du gamay, 34080 montpellier	2021-11-09 16:10:03.834943
 
-## Etape 30 - Ajout de Bootstrap  
+## Ajouter de Bootstrap  
 
     <dependency>
         <groupId>org.webjars</groupId>
@@ -69,13 +77,14 @@ On affiche toute la table address
         <version>5.1.3</version>
     </dependency>
 
-## Fin TP4  
 
-###Faut-il une clé API pour appeler MeteoConcept ?  
+# TP4
+
+## Faut-il une clé API pour appeler MeteoConcept ?  
 
 Oui, il faut un jeton/token pour accéder aux bases de données de MeteoConcept.
 
-### Quelle URL appeler ?  
+## Quelle URL appeler ?  
 
     String uri = "https://api.meteo-concept.com/api/forecast/daily?" +
                 "token=TOKEN&" +
@@ -134,25 +143,10 @@ Sélection des températures minimales et maximales
  
  
 
- 
-Expliquez l�apparition de la nouvelle table en vous aidant de vos cours sur Hibernate, et
-de la dependance Hibernate de Spring.
- -> ORM qui fait la correspondance entre l'object et la db, il cr�� les requetes SQL.. cr�ation db ce fait avec les annotations
- 
- 
-Relancez l�application, retournez sur la console H2 : http://localhost:8080/h2-console.
-Faites une requ�ete de type SELECT sur la table Adress. Voyez-vous tout le contenu de
-data.sql ?
- ->
-ID  	CONTENT  	CREATION  
-1	57 boulevard demorieux	2021-11-02 18:09:26.313861
-2	51 allee du gamay, 34080 montpellier	2021-11-02 18:09:26.328821
 
-Pouvez-vous trouver `a quoi sert l’annotation @Autowired du code précédent sur internet ?
- ->  L'annotation @ Autowired vous épargne le besoin de faire le câblage par vous-même dans le fichier XML (ou de toute autre manière) et trouve juste pour vous ce qui doit être injecté où, et le fait pour vous.
-	 Starting with Spring 2.5, the framework introduced annotations-driven Dependency Injection. The main annotation of this feature is @Autowired. It allows Spring to resolve and inject collaborating beans into our bean.
+ 
+ 
 
-Côté vu affichez la nouvelle donnée:
-ID  	AUTOR  	CONTENT  	CREATION  
-1	Zominique	57 boulevard demorieux	2021-11-09 16:10:03.820719
-2	Thomas	51 allee du gamay, 34080 montpellier	2021-11-09 16:10:03.834943
+
+
+
