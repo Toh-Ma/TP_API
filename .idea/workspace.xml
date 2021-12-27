@@ -5,14 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="555e0700-80c7-44f6-8f71-24aa0f6d151c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/TPAPI/tp5/controller/MeteoController2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/meteo2.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/TPAPI/tp5/controller/AddressController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TPAPI/tp5/controller/AddressController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/TPAPI/tp5/controller/MeteoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TPAPI/tp5/controller/MeteoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/addresses.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/addresses.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/fragments/navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/fragments/navbar.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/meteo.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/meteo.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,7 +74,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../tp_api_meteo-main" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -141,7 +135,7 @@
       <workItem from="1640190155101" duration="6685000" />
       <workItem from="1640531619788" duration="7961000" />
       <workItem from="1640556629172" duration="3886000" />
-      <workItem from="1640614153104" duration="1339000" />
+      <workItem from="1640614153104" duration="6727000" />
     </task>
     <servers />
   </component>
