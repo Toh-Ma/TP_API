@@ -1,3 +1,4 @@
+/*
 package TPAPI.tp5.controller;
 
 import TPAPI.tp5.request.address.AddressQueryResult;
@@ -5,22 +6,21 @@ import TPAPI.tp5.request.meteo.MeteoQueryResult;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.client.RestTemplate;
 
 @Controller
-public class MeteoController {
+public class MeteoController2 {
     @PostMapping(path = "/meteo")
     public String postBody(@RequestParam(value = "address") String addressMeteo, Model model) {
         RestTemplateBuilder builder = new RestTemplateBuilder();
         RestTemplate restTemplate = builder.build(); //Obtenir lattitude et longitude à partir d'une adresse
         double[] coordinate = getAddressResult(restTemplate, model, addressMeteo);
         getMeteoResult(restTemplate, model, coordinate[1], coordinate[0]); //Obtenir les données météo à partir des points GPS
-        return "meteo";
+        return "meteo2";
     }
-
+*/
     /**
      *
      * @param restTemplate
@@ -28,7 +28,7 @@ public class MeteoController {
      * @param addressMeteo
      * @return
      */
-    private double[] getAddressResult(RestTemplate restTemplate, Model model, String addressMeteo){
+/*    private double[] getAddressResult(RestTemplate restTemplate, Model model, String addressMeteo){
         // Préparation de la requête
         String uri = "https://api-adresse.data.gouv.fr/search/?limit=1&q=" + addressMeteo.replace(" ", "+");
 
@@ -45,12 +45,13 @@ public class MeteoController {
         // Affichage des informations dans le fichier html
         model.addAttribute("name", name);
         model.addAttribute("city", city);
+
         model.addAttribute("lon", lon);
         model.addAttribute("lat", lat);
 
         return new double[]{lon, lat};
     }
-
+*/
     /**
      *
      * @param restTemplate
@@ -58,10 +59,10 @@ public class MeteoController {
      * @param lat
      * @param lon
      */
-    private void getMeteoResult(RestTemplate restTemplate, Model model, double lat, double lon) {
+/*    private void getMeteoResult(RestTemplate restTemplate, Model model, double lat, double lon) {
         // Préparation de la requête
         String uri = "https://api.meteo-concept.com/api/forecast/daily?" +
-                "token=d18f921d5f46154d423ff92b679e5b3bc7710647956ea5538e36d49aab4e0572" +
+                "token=08c9d0a82c1eb23fdd59cb4c8d61743dc3dcee51ef8d83bca0b9060c36923e9f&" +
                 "latlng="+ lat +","+ lon;
 
         // Résultat de la requête
@@ -80,3 +81,4 @@ public class MeteoController {
         model.addAttribute("weather", weather);
     }
 }
+*/

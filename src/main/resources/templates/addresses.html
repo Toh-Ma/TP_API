@@ -16,5 +16,18 @@
             <li th:text="${address.content+ ' || '  + address.autor}"/>
         </ul>
       </table>
+
+      <div class="container">
+          <form action="/meteo" method="post">
+              <div>
+                  <label for="address"> Please input your adress:</label>
+                  <input name="address" id="address">
+              </div>
+
+              <div>
+                  <button> Get the weather at the given address ! </button>
+              </div>
+          </form>
+      </div>
     </body>
 </html>

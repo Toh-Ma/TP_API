@@ -12,8 +12,7 @@ public class AddressController {
     AddressRepository addressRepository;
     @GetMapping("/addresses")
     public String showAddresses (Model model) {
-        model.addAttribute("allAddresses",
-                addressRepository.findAll()) ;
+        model.addAttribute("allAddresses",addressRepository.findAll());
         return "addresses";
     }
 }
