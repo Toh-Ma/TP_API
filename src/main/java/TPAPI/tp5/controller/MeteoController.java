@@ -29,8 +29,6 @@ public class MeteoController {
 
         String city = addr.getFeatures()[0].getProperties().getCity();          //récupérer la ville de l'adresse (on prend uniquement la première ville renvoyé par l'API. Il n'y a pas de vérification de l'adresse avant)
         double[] coor = addr.getFeatures()[0].getGeometry().getCoordinates();  //récupérer les coordonnées géographiques de l'adresse
-        model.addAttribute("city", city);
-
 
         //token d'identification de MeteoConcept api
         final String token = "d18f921d5f46154d423ff92b679e5b3bc7710647956ea5538e36d49aab4e0572";
@@ -38,66 +36,50 @@ public class MeteoController {
         final String meteoUri = "https://api.meteo-concept.com/api/forecast/daily?token=" + token +
                 "&latlng=" + coor[1] + "," + coor[0];
 
-
-
         // Résultat de la requête
         MeteoQueryResult meteoresult = restTemplate.getForObject(meteoUri, MeteoQueryResult.class);
 
-        LocalDate date = LocalDate.now();       //récupérer la date d'aujourd'hui
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd LLLL yyyy");    //Permet de formatter la date sous la forme jour mois année
-
-
         //on récupère les prévisions météo de chaque jour pour les envoyer au template
-        for (int i = 0; i < meteoresult.getForecast().length; i++) {
-            int weather, tmin, tmax, probarain;
+        int weather, tmin, tmax, probarain;
 
-            weather = meteoresult.getForecast()[i].getWeather();     //code météo du jour (cf documentation API météo)
-            tmin = meteoresult.getForecast()[i].getTmin();                //température minimale
-            tmax = meteoresult.getForecast()[i].getTmax();                //température maximale
-            probarain = meteoresult.getForecast()[i].getProbarain();      //probabilité de pluie en %
-
-
-            //envoyer chaque attribut au template (le numéro _i permet de les différencier)
-            model.addAttribute("city", city);
-            model.addAttribute("probarain", probarain);
-            model.addAttribute("tmin", tmin);
-            model.addAttribute("tmax", tmax);
-            model.addAttribute("weather", weather);
-            model.addAttribute("probarain" + i, probarain);
-            model.addAttribute("date" + i, date.plusDays(i).format(formatter));    //.format(formatter) permet d'envoyer la date au formattage défini précédement
-            model.addAttribute("icon" + i, weatherIconConverter(weather));
-
-        }
-
+        weather = meteoresult.getForecast()[0].getWeather();     //code météo du jour (cf documentation API météo)
+        tmin = meteoresult.getForecast()[0].getTmin();                //température minimale
+        tmax = meteoresult.getForecast()[0].getTmax();                //température maximale
+        probarain = meteoresult.getForecast()[0].getProbarain();      //probabilité de pluie en %
+        model.addAttribute("city", city);
+        model.addAttribute("probarain", probarain);
+        model.addAttribute("tmin", tmin);
+        model.addAttribute("tmax", tmax);
+        model.addAttribute("weather", weather);
+        model.addAttribute("image", weatherImage(weather));
         return "meteo";
     }
-
 
     /**
      * fonction permettant de lier le code météo fournit par l'api meteo avec l'icone correspondant
      *
-     * @param weatherCode
-     * @return icon file name
+     * @param weather
+     * @return image file name
      */
-    String weatherIconConverter(int weatherCode) {
+    String weatherImage(int weather) {
         //ensoleillé
-        if (weatherCode <= 3) {
+        if (weather <= 3) {
             return "sunny.svg";
         }
         //nuageux
-        else if (weatherCode >= 4 && weatherCode <= 7) {
+        else if (weather >= 4 && weather <= 7) {
             return "cloudy.svg";
         }
         //pluie
-        else if ((weatherCode >= 10 && weatherCode <= 16) || (weatherCode >= 40 && weatherCode <= 48) || (weatherCode >= 210 && weatherCode <= 212) || weatherCode == 235) {
+        else if ((weather >= 10 && weather <= 16) || (weather >= 40 && weather <= 48) || (weather >= 210 && weather <= 212) || weather == 235) {
             return "rainy.svg";
         }
         //neige
-        else if ((weatherCode >= 20 && weatherCode <= 32) || (weatherCode >= 60 && weatherCode <= 78) || (weatherCode >= 220 && weatherCode <= 232)) {
+        else if ((weather >= 20 && weather <= 32) || (weather >= 60 && weather <= 78) || (weather >= 220 && weather <= 232)) {
             return "snowy.svg";
         }
         //orage
-        else if (weatherCode >= 100 && weatherCode <= 142) {
+        else if (weather >= 100 && weather <= 142) {
             return "thunder.svg";
         } else return "";
     }
