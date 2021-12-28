@@ -10,7 +10,9 @@
     </head>
     <body>
       <div th:insert="fragments/navbar.html"></div>
+      <br>
       <h1> Les differentes adresses </h1>
+      <br>
       <table class="table table-striped">
         <ul th:each="address : ${allAddresses}">
             <li th:text="${address.content+ ' || '  + address.autor}"/>

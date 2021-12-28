@@ -56,14 +56,16 @@ public class MeteoController {
             tmax = meteoresult.getForecast()[i].getTmax();                //température maximale
             probarain = meteoresult.getForecast()[i].getProbarain();      //probabilité de pluie en %
 
+
             //envoyer chaque attribut au template (le numéro _i permet de les différencier)
+            model.addAttribute("city", city);
             model.addAttribute("probarain", probarain);
             model.addAttribute("tmin", tmin);
             model.addAttribute("tmax", tmax);
             model.addAttribute("weather", weather);
-            model.addAttribute("probarain_" + i, probarain);
-            model.addAttribute("date_" + i, date.plusDays(i).format(formatter));    //.format(formatter) permet d'envoyer la date au formattage défini précédement
-            model.addAttribute("icon_" + i, weatherIconConverter(weather));
+            model.addAttribute("probarain" + i, probarain);
+            model.addAttribute("date" + i, date.plusDays(i).format(formatter));    //.format(formatter) permet d'envoyer la date au formattage défini précédement
+            model.addAttribute("icon" + i, weatherIconConverter(weather));
 
         }
 

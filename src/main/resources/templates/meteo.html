@@ -8,18 +8,14 @@
 
     <style>
         table{
-            width: 100%;
-            height: 80%;
-            margin-top: 100px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+            margin-top: 50px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.20);
+            margin-inline: auto;
         }
         th{
-            background-color: #e3bbfd;
+            background-color: #DAF7A6;
             text-align: center;
-        }
-        #chartdiv {
             width: 100%;
-            height: 500px;
         }
     </style>
 </head>
@@ -34,18 +30,13 @@
             </th>
         </tr>
         <tr>
-            <td style="width: 40%;">
+            <td style="text-align: center;">
                 <div class="container">
-                    <p>Adresse du point</p>
-                    <p th:text="${name}"></p>
-                    <p th:text=" ${city}"></p>
-                    <p th:text="'Position latitude ' + ${lat} "></p>
-                    <p th:text="'Position longitude ' + ${lon} "></p>
-                    <hr>
-                    <p th:text="'Type de temps ' + ${weather}"></p>
-                    <p th:text="'Température minimale ' + ${tmin} + '°C' "></p>
-                    <p th:text="'Température maximale ' + ${tmax} + '°C' "></p>
-                    <p th:text="'Taux de probabilité de la pluie ' + ${probarain} + '%' "></p>
+                    <p th:text="'Ville: ' + ${city}"></p>
+                    <p th:text="'Type de temps: ' + ${weather}"> <img th:src="${'images/'}"> </p>
+                    <p th:text="'Température minimale: ' + ${tmin} + '°C' "></p>
+                    <p th:text="'Température maximale: ' + ${tmax} + '°C' "></p>
+                    <p th:text="'Taux de probabilité de la pluie: ' + ${probarain} + '%' "></p>
                     <a href="https://api.meteo-concept.com/documentation#code-temps">cf.Annexe pour les types de temps</a>
                 </div>
             </td>
