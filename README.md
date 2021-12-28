@@ -91,15 +91,18 @@ Avec notre Token personnel.
 ### Quelle méthode HTTP utiliser ?
 On doit utiliser la méthode **GET** et passer en paramètre les coordonnées géographique de l'endroit dont on souhaite obtenir les prévisions météos
 
-
-### Où est l’information dont j’ai besoin dans la réponse :
-	- Pour afficher la température du lieu visé par les coordonnées GPS :
-		![img.png](img1.png)
-	- Pour afficher la prévision de météo du lieu visé par les coordonnées GPS :
-		![img.png](img.png)
-
 ### Comment passer les paramètres d'appels ?  
 On saisie les coordonnées géographiques après latlng dans l'URL à appeler. 
+
+### Où est l’information dont j’ai besoin dans la réponse :
+- Pour afficher la température du lieu visé par les coordonnées GPS :
+	![img1](https://user-images.githubusercontent.com/92999833/147581738-8b533692-a995-44f1-9e82-72b6a6883410.PNG)
+	![image](img1.png)
+
+- Pour afficher la prévision de météo du lieu visé par les coordonnées GPS :
+	![img](https://user-images.githubusercontent.com/92999833/147581758-90ffac42-939e-4fcb-b46d-361af2d77afa.PNG)
+	![image](img.png)
+
 
 
 
