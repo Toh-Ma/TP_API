@@ -7,8 +7,7 @@ public class AddressData {
 	private String label;	// houseNumber + street + postCode + city
 	private String name;	// houseNumber + street
 	private String context;	// departmentNumber + department + region
-
-	private int houseNumber;
+	private int number;
 	private String street;
 	private int postCode;
 	private String city;
@@ -32,12 +31,12 @@ public class AddressData {
 		this.context = context;
 	}
 
-	public int getHouseNumber() {
-		return houseNumber;
+	public int getNumber() {
+		return number;
 	}
 
-	public void setHouseNumber(int houseNumber) {
-		this.houseNumber = houseNumber;
+	public void setNumber(int houseNumber) {
+		this.number = number;
 	}
 
 	public String getStreet() {

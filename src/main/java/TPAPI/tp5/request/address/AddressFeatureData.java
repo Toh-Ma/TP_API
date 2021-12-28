@@ -6,10 +6,9 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 public class AddressFeatureData {
 
 	private AddressData properties;
-	private GeometryData geometry;
+	private DataGeometry geometry;
 	
 	public AddressFeatureData() {
-
 	}
 
 	public AddressData getProperties() {
@@ -20,11 +19,11 @@ public class AddressFeatureData {
 		this.properties = properties;
 	}
 
-	public GeometryData getGeometry() {
+	public DataGeometry getGeometry() {
 		return geometry;
 	}
 
-	public void setGeometry(GeometryData geometry) {
+	public void setGeometry(DataGeometry geometry) {
 		this.geometry = geometry;
 	}
 }

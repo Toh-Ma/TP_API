@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class GeometryData {
+public class DataGeometry {
 
     public double[] getCoordinates() {
         return coordinates;
@@ -17,5 +17,5 @@ public class GeometryData {
     @JsonProperty
     double[] coordinates;
 
-    public GeometryData() {}
+    public DataGeometry() {}
 }

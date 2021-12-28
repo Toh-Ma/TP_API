@@ -18,6 +18,4 @@ public class MeteoQueryResult {
 		this.forecast = forecast;
 	}
 	
-	
-	
 }
