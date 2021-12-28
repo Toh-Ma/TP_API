@@ -80,34 +80,25 @@ ID  	AUTOR  	CONTENT  	CREATION
 
 ### Faut-il une clé API pour appeler MeteoConcept ?  
 Oui, un token est nécessaire pour accéder aux bases de données de MeteoConcept.
+mon token: d18f921d5f46154d423ff92b679e5b3bc7710647956ea5538e36d49aab4e0572
 
 ### Quelle URL appeler ?  
 String uri = "https://api.meteo-concept.com/api/forecast/daily?"+"token=TOKEN&"+"latlng="+lat+","+lon;
+Avec notre Token personnel.
+
+### Quelle méthode HTTP utiliser ?
+On doit utiliser la méthode **GET** et passer en paramètre les coordonnées géographique de l'endroit dont on souhaite obtenir les prévisions météos
 
 
-# !!! a continuer !!!
-### Quelle méthode HTTP utiliser ?  
-Pour réaliser une requête à ces serveurs, on doit utiliser la méthode GET pour passer en paramètres des informations supplémentaires permettant d'affiner notre recherche/demande.
+### Où est l’information dont j’ai besoin dans la réponse :
+	- Pour afficher la température du lieu visé par les coordonnées GPS :
+		![img.png](img1.png)
+	- Pour afficher la prévision de météo du lieu visé par les coordonnées GPS :
+		![img.png](img.png)
 
 ### Comment passer les paramètres d'appels ?  
-En modifiant légèrement l'URL à appeler avec une concaténation d'éléments. On ajoute latlng - l'attribut permettant de décrire la latitude et la longitude du point GPS. 
-Le reste de l'URL se trouve à la question "Quelle URL appeler".
+On saisie les coordonnées géographiques après latlng dans l'URL à appeler. 
 
-### Où est l'information dont j'ai besoin dans la réponse
-![img.png](resource/img.png)
-  
-Exemple de réponse 
-
-### Pour afficher la prévision de météo du lieu visé par les coordonnées GPS
-Architecture : response>forecast>item[0]>weather  
-Sélection de item[0] puisque c'est un tableau de item.  
-
-![img_1.png](resource/img_1.png)  
-Dans notre exemple et selon l'annexe fournit par MeteoConcept, une "weather" de valeur 3 signifie un temps nuageux.
-
-### Pour afficher la température du lieu visé par les coordonnées GPS
-Architecture : response>forecast>item[0]>tmin et response>forecast>item[0]>tmax  
-Sélection des températures minimales et maximales
 
 
 
