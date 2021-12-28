@@ -1,6 +1,8 @@
 # Compte rendu du TP de BASTIDE Thomas
 lien du GitHub: https://github.com/Toh-Ma/TP_API.git
 
+Lancer: http://localhost:9090/greeting?nameGET=ENSIM
+
 
 ## TP2
 
